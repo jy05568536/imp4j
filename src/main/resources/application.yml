@@ -1,0 +1,7 @@
+# MyBatis
+mybatis:
+  mapper-locations:
+    - classpath:mapper/*.xml
+  configuration:
+    use-generated-keys: true
+    call-setters-on-nulls: true

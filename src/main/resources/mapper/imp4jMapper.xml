@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fermii.imp4j.mapper.Imp4jMapper">
+    <insert id="replaceInsert" parameterType="com.fermii.imp4j.model.ImpData">
+        <foreach collection="datas" separator=";" item="cus">
+            replace into ${tableName}
+            <foreach collection="columnNames" item="item" open="(" separator="," close=")">
+                #{item}
+            </foreach>
+            VALUES
+            <foreach collection="datas" item="row">
+                <foreach collection="row" item="item" open="(" separator="," close=")">
+                    #{item}
+                </foreach>
+            </foreach>
+        </foreach>
+    </insert>
+</mapper>

@@ -12,7 +12,7 @@ public class Imp4jController {
     @Autowired
     private Imp4jService imp4jService;
 
-    @PostMapping("/data/{tableName}")
+    @PostMapping("/src/main/data/{tableName}")
     public Object getChildren(@PathVariable(value = "tableName") String tableName, @RequestParam(value = "file") MultipartFile file) {
         return imp4jService.impData(tableName, file);
     }

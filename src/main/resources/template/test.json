@@ -1,0 +1,60 @@
+{
+  "dateStartRow": 2,
+  "className": "com.fermii.imp4j.mapping.Coupons",
+  "columnMapping": {
+    "0": {
+      "name": "num",
+      "type": "String"
+    },
+    "1": {
+      "name": "code",
+      "type": "String"
+    },
+    "2": {
+      "name": "title",
+      "type": "String"
+    },
+    "3": {
+      "name": "subTitle",
+      "type": "String"
+    },
+    "4": {
+      "name": "userNum",
+      "type": "String"
+    },
+    "5": {
+      "name": "money",
+      "type": "Float"
+    },
+    "6": {
+      "name": "validity",
+      "type": "String",
+      "remark": "yyyy/MM/dd-HH:mm:ss"
+    },
+    "7": {
+      "name": "distributeType",
+      "type": "String"
+    },
+    "8": {
+      "name": "actionType",
+      "type": "String"
+    },
+    "9": {
+      "name": "distributeObject",
+      "type": "String"
+    },
+    "10": {
+      "name": "unit",
+      "type": "String"
+    },
+    "11": {
+      "name": "time",
+      "type": "String",
+      "remark": "yyyy-MM-dd HH:mm:ss"
+    },
+    "12": {
+      "name": "status",
+      "type": "String"
+    }
+  }
+}

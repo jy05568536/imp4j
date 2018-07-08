@@ -11,45 +11,15 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import java.io.FileInputStream;
 import java.util.*;
 
+import static com.fermii.imp4j.common.utility.MapObjectTransferUtility.formatValue;
+
 /**
  * excel 工具类
  *
  * @author lirui
  * @date 2018年7月5日 14:29:02
  */
-public class ExcelUtil {
-
-//    public static List<List<String>> parseByTemplate(FileInputStream inStream) {
-//        Workbook workBook;
-//        try {
-////            workBook = WorkbookFactory.create(inStream);
-//            workBook = new XSSFWorkbook(inStream);
-//            Sheet sheet = workBook.getSheetAt(0);//默认只解析第一个sheet
-//            Row keyRow = sheet.getRow(keyRowNum - 1);
-//            int rowLength = sheet.getLastRowNum();
-//            int columnSize = keyRow.getLastCellNum();
-//            List<HashMap<String, String>> list = new ArrayList<>();
-//            for (int rowNum = valueStartRowNum - 1; rowNum <= rowLength; rowNum++) {//开始遍历数据
-//                Row currentRow = sheet.getRow(rowNum);
-//                if (isRowEmpty(currentRow)) {//检查一整行是否都是空的，空的话就跳过
-//                    continue;
-//                }
-//                HashMap<String, String> map = new HashMap<>();
-//                for (int c = 0; c < columnSize; c++) {
-//                    String key = (String) getCellValue(keyRow.getCell(c));
-//                    Object value = getCellValue(currentRow.getCell(c));
-//                    String valueStr = String.valueOf(value);
-////                    valueStr = Trim_str(valueStr); //目前不对数据进行预处理
-//                    map.put(key, valueStr);
-//                }
-//                list.add(map);
-//            }
-//            return list;
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//        return null;
-//    }
+public class ExcelParseUtil {
 
 
     /**
@@ -98,7 +68,7 @@ public class ExcelUtil {
      * @param str str
      * @return str
      */
-    static private String Trim_str(String str) {
+    public static String Trim_str(String str) {
         if (str == null)
             return null;
         return str.trim();
@@ -217,33 +187,5 @@ public class ExcelUtil {
         return null;
     }
 
-    /**
-     * 格式化对象类型
-     *
-     * @param strValue str
-     * @param des      数据描述
-     * @return Object
-     */
-    private static Object formatValue(String strValue, ColumnDescription des) {
-        String type = des.getType();
 
-        if ("String".equals(type)) {
-            return strValue;
-        }
-        if ("Integer".equals(type)) {
-            return Integer.valueOf(strValue);
-        }
-        if ("Float".equals(type)) {
-            return Float.valueOf(strValue);
-        }
-        if ("Double".equals(type)) {
-            return Double.valueOf(strValue);
-        }
-        if ("Date".equals(type)) {
-            String remark = des.getRemark();
-            return DateUtility.string2Date(strValue, remark);
-        }
-
-        return null;
-    }
 }

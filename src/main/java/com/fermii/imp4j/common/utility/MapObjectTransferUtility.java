@@ -1,5 +1,7 @@
 package com.fermii.imp4j.common.utility;
 
+import com.fermii.imp4j.common.description.ColumnDescription;
+
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.Date;
@@ -23,9 +25,9 @@ public class MapObjectTransferUtility {
         Set set = map.keySet();
         Iterator iterator = set.iterator();
         while (iterator.hasNext()) {
-            Object obj = iterator.next();
-            Object val = map.get(obj);
-            setMethod(obj, val, thisObj);
+            String key = (String) iterator.next();
+            Object val = map.get(key);
+            setMethod(key, val, thisObj);
         }
     }
 
@@ -49,5 +51,35 @@ public class MapObjectTransferUtility {
             // TODO: handle exception
             e.printStackTrace();
         }
+    }
+
+    /**
+     * 格式化对象类型
+     *
+     * @param strValue str
+     * @param des      数据描述
+     * @return Object
+     */
+    public static Object formatValue(String strValue, ColumnDescription des) {
+        String type = des.getType();
+
+        if ("String".equals(type)) {
+            return strValue;
+        }
+        if ("Integer".equals(type)) {
+            return Integer.valueOf(strValue);
+        }
+        if ("Float".equals(type)) {
+            return Float.valueOf(strValue);
+        }
+        if ("Double".equals(type)) {
+            return Double.valueOf(strValue);
+        }
+        if ("Date".equals(type)) {
+            String remark = des.getRemark();
+            return DateUtility.string2Date(strValue, remark);
+        }
+
+        return null;
     }
 }

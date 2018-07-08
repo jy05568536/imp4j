@@ -1,7 +1,7 @@
 package excel;
 
 
-import com.fermii.imp4j.common.excel.ExcelUtil;
+import com.fermii.imp4j.common.excel.ExcelParseUtil;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -19,7 +19,7 @@ public class ExcelUtilTest {
         File xlsxFile = new File(xlsxPath);
         FileInputStream xlsxInStream = new FileInputStream(xlsxFile);
         //解析过程，定义输入流
-        List<HashMap<String, String>> content = ExcelUtil.parse(xlsxInStream, 1, 2);
+        List<HashMap<String, String>> content = ExcelParseUtil.parse(xlsxInStream, 1, 2);
         assert content != null;
         System.out.println(content.size());
 //        System.out.println(content);

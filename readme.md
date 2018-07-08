@@ -5,3 +5,6 @@
 > * 通过配置json文件完成导入逻辑
 > * 支持简单公式
 > * 支持简单数据校验
+
+### 依赖说明
+* [表达式引擎aviator主页](https://github.com/killme2008/aviator)

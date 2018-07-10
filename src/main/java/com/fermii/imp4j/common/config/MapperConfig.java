@@ -1,4 +1,4 @@
-package com.fermii.imp4j.common;
+package com.fermii.imp4j.common.config;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Configuration;

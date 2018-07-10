@@ -2,10 +2,11 @@ package com.fermii.imp4j.model;
 
 import lombok.Data;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
-public class ImpData {
+public class Imp4jData {
 
     /**
      * 表名
@@ -18,5 +19,10 @@ public class ImpData {
     /**
      * 数据
      */
-    private List<String[]> datas;
+    private List<String[]> values;
+
+    public Imp4jData() {
+        columnNames = new ArrayList<>();
+        values = new ArrayList<>();
+    }
 }

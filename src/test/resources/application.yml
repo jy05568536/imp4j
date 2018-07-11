@@ -8,7 +8,7 @@ mybatis:
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/bill?useSSL=false&characterEncoding=utf8
+    url: jdbc:mysql://127.0.0.1:3306/dl?useSSL=false&characterEncoding=utf8&allowMultiQueries=true
     username: root
     password: root
     # DruidDataSource

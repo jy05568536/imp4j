@@ -6,10 +6,18 @@ import java.util.HashMap;
  * 描述文件数据结构
  */
 public class DateDescription {
-
+    private String tableName;
     private int dateStartRow;//数据起始行，同excel，从1开始
     private Class className; //数据对应对象类名
     private HashMap<Integer, ColumnDescription> columnMapping;//每列数据映射
+
+    public String getTableName() {
+        return tableName;
+    }
+
+    public void setTableName(String tableName) {
+        this.tableName = tableName;
+    }
 
     public int getDateStartRow() {
         return dateStartRow;

@@ -6,7 +6,16 @@ package com.fermii.imp4j.common.description;
 public class ColumnDescription {
     private String name; //对应列名称
     private String type; //对应类型
+    private String re;
     private String remark;
+
+    public String getRe() {
+        return re;
+    }
+
+    public void setRe(String re) {
+        this.re = re;
+    }
 
     public String getRemark() {
         return remark;

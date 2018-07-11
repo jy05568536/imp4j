@@ -3,6 +3,7 @@ package csv;
 import com.alibaba.fastjson.JSONObject;
 import com.fermii.imp4j.common.csv.CSVParseUtil;
 import com.fermii.imp4j.common.description.DateDescription;
+import com.fermii.imp4j.common.regex.RegexValidateInfo;
 import com.fermii.imp4j.common.utility.DataDescriptionUtility;
 import com.fermii.imp4j.common.utility.MapObjectTransferUtility;
 import com.fermii.imp4j.common.utility.PathUtility;
@@ -12,6 +13,8 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
+import static com.fermii.imp4j.common.regex.RegexUtility.validateRegex;
 
 public class CSVParseTest {
     public static void main(String[] args) throws Exception {
@@ -28,18 +31,18 @@ public class CSVParseTest {
 //        CsvReader reader = new CsvReader(dataPath, ',', Charset.forName(encoding));
         List<HashMap<String, Object>> map = CSVParseUtil.parseToMap(fileInputStream, dateDescription);
         System.out.println("1");
+        RegexValidateInfo valid = validateRegex(map, dateDescription);
         List coupons = mapToObject(map, dateDescription);
         System.out.println(coupons);
     }
 
-    private static List mapToObject(List<HashMap<String, Object>> list, DateDescription dateDescription) {
+    private static List mapToObject(List<HashMap<String, Object>> list, DateDescription dateDescription) throws IllegalAccessException, InstantiationException {
         List<Coupons> couponsList = new ArrayList<>();
         for (HashMap<String, Object> map : list) {
-            Coupons coupons = new Coupons();
+            Coupons coupons = (Coupons) dateDescription.getClassName().newInstance();
             MapObjectTransferUtility.setValue(map, coupons);
             couponsList.add(coupons);
         }
-
         return couponsList;
     }
 

@@ -1,10 +1,14 @@
 {
+  "tableName": "gas_daily",
   "dateStartRow": 2,
   "className": "com.fermii.imp4j.mapping.Coupons",
+  "error": "error",
   "columnMapping": {
     "0": {
       "name": "num",
-      "type": "String"
+      "type": "String",
+      "re": "",
+      "remark": ""
     },
     "1": {
       "name": "code",

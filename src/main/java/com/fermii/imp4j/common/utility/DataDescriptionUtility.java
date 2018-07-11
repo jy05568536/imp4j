@@ -22,6 +22,7 @@ public class DataDescriptionUtility {
     public static DateDescription transferToDateDescription(JSONObject jsonObj) throws Exception {
         DateDescription des = new DateDescription();
         des.setClassName(Class.forName((String) jsonObj.get("className")));
+        des.setTableName(jsonObj.getString("tableName"));
         des.setDateStartRow(jsonObj.getInteger("dateStartRow"));
         JSONObject columnMapping = (JSONObject) jsonObj.get("columnMapping");
         Set<String> columnNums = columnMapping.keySet();
@@ -40,6 +41,10 @@ public class DataDescriptionUtility {
             if (value.containsKey("remark")) {
                 String remark = value.getString("remark");
                 columnDescription.setRemark(remark);
+            }
+            if (value.containsKey("re")) {
+                String re = value.getString("re");
+                columnDescription.setRe(re);
             }
             map.put(column, columnDescription);
         }
